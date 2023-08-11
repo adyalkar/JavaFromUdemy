@@ -1,0 +1,89 @@
+In Java, the static and non-static (also known as instance) keywords play significant roles 
+in defining and organizing the behavior and data of classes. Let's explore the details of 
+each keyword:
+
+static Keyword:
+=======================================
+1. Static Variables (Class Variables):
+--------------------------------------------
+A) A static variable is associated with the class itself, not with instances (objects) of the 
+class.
+B) There is only one copy of the static variable shared among all instances of the class.
+C) Static variables are initialized only once when the class is loaded into memory.
+D) They are often used for data that should be common to all instances of the class, 
+such as constants or shared resources.
+
+2.Static Methods (Class Methods):
+----------------------------------------------
+
+A) A static method is associated with the class rather than with any specific instance of the class.
+B) Static methods can be called using the class name without the need to create an object.
+C) They cannot directly access instance variables or non-static (instance) methods, 
+as they are not tied to any particular object.
+D) Often used for utility methods, factory methods, or methods that perform operations 
+independent of object state.
+
+3. Static Blocks:
+---------------------------------------------------------
+
+A) Static blocks are used to initialize static variables or perform other one-time setup 
+actions for the class.
+B) They are executed only once when the class is loaded into memory, before any instance is 
+created or any static method is called.
+
+
+Non-Static (Instance) Keyword:
+============================================================
+1. Instance Variables:
+------------------------------------
+
+A) Instance variables are associated with individual instances (objects) of the class.
+B) Each instance of the class has its own copy of instance variables.
+C) Instance variables are initialized for each object when the object is created using the new keyword.
+D) They represent the state of individual objects and can have different values for different objects.
+
+2.Instance Methods:
+------------------------------------------------------
+A) An instance method operates on a specific instance of the class and can access instance 
+variables directly.
+B) Instance methods can be called on objects created from the class, and they can modify 
+the state of the object.
+C) They can also call other instance methods and use this keyword to refer to the current instance.
+
+
+class MyClass {
+    // Static variable
+    static int staticVariable;
+
+    // Instance variable
+    int instanceVariable;
+
+    // Static method
+    static void staticMethod() {
+        System.out.println("Static method called");
+        // System.out.println(instanceVariable); // Error: Cannot access instance variable in static method
+    }
+
+    // Instance method
+    void instanceMethod() {
+        System.out.println("Instance method called");
+        System.out.println("Instance variable: " + instanceVariable);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass.staticVariable = 10;
+
+        MyClass myObj1 = new MyClass();
+        myObj1.instanceVariable = 20;
+
+        MyClass.staticMethod(); // Output: Static method called
+        myObj1.instanceMethod(); // Output: Instance method called, Instance variable: 20
+    }
+}
+
+
+
+
+

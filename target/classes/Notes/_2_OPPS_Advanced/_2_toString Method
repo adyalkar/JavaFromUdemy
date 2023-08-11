@@ -1,0 +1,27 @@
+The toString() method is a built-in method in Java that belongs to the Object class, 
+the root class for all classes in Java.
+
+When you call toString() on an object, it returns a string that represents the object's state. By default, the toString() method 
+returns a string that includes the class name and a unique identifier of the object 
+in the form of the object's hash code.
+Ex: _4_OOPS_Advanced._1_Fan@3d012ddd
+
+However, it is common practice to override the toString() method in your own classes 
+to provide a meaningful and human-readable representation of the object's state. 
+This can be helpful for debugging and displaying object information in a readable 
+format.
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person: Name=" + name + ", Age=" + age;
+    }
+}

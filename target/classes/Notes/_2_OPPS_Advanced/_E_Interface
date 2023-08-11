@@ -1,0 +1,111 @@
+In Java, an interface is a programming construct that defines a contract or a set of abstract 
+methods that a class must implement. It represents a collection of abstract methods and constant 
+fields, but it does not provide any implementation for those methods. Instead, any class that
+ implements an interface must provide concrete implementations for all the methods declared 
+ in the interface.
+
+Key points about interfaces in Java:
+-------------------------------------------------------
+1.Declaring an Interface: To create an interface, you use the interface keyword followed by 
+the name of the interface. The syntax for declaring an interface is similar to that of a class, 
+but you do not provide any method bodies.
+
+2.Abstract Methods: An interface contains only abstract methods, which means they have no method 
+body or implementation. Each method in the interface is implicitly public and abstract. 
+In newer versions of Java (Java 8 onwards), interfaces can also have default and static methods 
+with implementations.
+
+3.Constants: Interfaces can contain constant fields, which are implicitly public, static, and 
+final. These fields are used to declare constants that are accessible through the interface.
+
+4.Implementing an Interface: A class can implement one or more interfaces by using the implements
+ keyword in the class declaration. When a class implements an interface, it must provide concrete
+ implementations for all the abstract methods declared in the interface.
+
+5.Multiple Inheritance: Java supports multiple inheritance through interfaces. A class can 
+implement multiple interfaces, allowing it to inherit the abstract methods and constants from 
+all the implemented interfaces.
+
+6.Interface Inheritance: Interfaces can also extend other interfaces, creating an interface 
+inheritance hierarchy. When one interface extends another, the child interface inherits the 
+abstract methods and constants from the parent interface.
+
+7.Marker Interfaces: Some interfaces in Java serve as marker interfaces with no methods at all. 
+They simply mark a class as having a certain characteristic, such as Serializable or Cloneable.
+
+---------------------------------------------------------------------------------------------------------
+
+In Java interfaces, constant fields are used to define constants that can be accessed and used 
+by classes that implement the interface. These constants are implicitly public, static, and final,
+ which means they have specific characteristics:
+
+1.Public: Constant fields in an interface are automatically made public, which means they can 
+be accessed from anywhere in the program, regardless of whether the class implementing the 
+interface is in the same package or a different package.
+
+2.Static: Constant fields in an interface are automatically made static. This means that the 
+constants belong to the interface itself, not to any particular instance of a class implementing 
+the interface. As a result, you don't need to create an instance of the interface to access its 
+constants.
+
+3.Final: Constant fields in an interface are automatically made final, making them constants 
+that cannot be changed or reassigned. Once a value is assigned to a constant field in the 
+interface, it remains constant throughout the program's execution.
+
+// Interface declaration
+interface Shape {
+    // Abstract method
+    void draw();
+
+    // Constant fields
+    int MAX_SIDES = 4;
+}
+
+// Class implementing the interface
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+// Class implementing multiple interfaces
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects of classes implementing the interface
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        // Calling the interface method on objects
+        circle.draw(); // Output: "Drawing a circle"
+        rectangle.draw(); // Output: "Drawing a rectangle"
+
+        // Accessing constant fields from the interface
+        System.out.println("Max sides of a shape: " + Shape.MAX_SIDES); // Output: "Max sides of a shape: 4"
+    }
+}
+
+
+-------------------------------------------------------------------------------
+1.interface A ,interface B , class A , absract class A
+
+1.interface B can extend interface A 
+2.If class A implements interface B then it has to override all methods from interface A and interface B
+3.If anyone wants tp override few methods only from interface A and interface B then make 
+class as absract .
+like absract class A implements  interface A ,interface B
+
+4. from java 8 onwards we may have default method in interface 
+like default void demo(){print("Hello")}
+
+
+
+
+

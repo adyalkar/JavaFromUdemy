@@ -1,0 +1,149 @@
+Inheritance (IS A RELATIONSHIP)
+========================================= 
+is a fundamental object-oriented programming concept in Java that allows 
+a class (subclass or derived class) to inherit properties and behaviors from another 
+class (superclass or base class). The class that inherits from another class is 
+called the subclass, and the class being inherited from is called the superclass. 
+Inheritance facilitates the reuse of code and supports the concept of a hierarchy of 
+classes.
+
+In Java, the extends keyword is used to establish inheritance between classes. 
+When a subclass extends a superclass, it inherits all the non-private fields and 
+methods of the superclass. The subclass can then add its own specific fields and 
+methods, as well as override or extend the behavior of the inherited methods.
+
+The various types of inheritance are:
+================================================
+
+1. Single level Inheritance:
+-------------------------------------
+Single inheritance is when a class can inherit from only one superclass.
+In Java, this is achieved using the extends keyword. Each subclass can have only one
+direct superclass.
+
+class Animal {
+    // ...
+}
+
+class Dog extends Animal {
+    // ...
+}
+
+2. Multilevel Inheritance:
+-----------------------------------
+Multilevel inheritance is when a class extends another class, which in turn extends
+another class, forming a chain of inheritance. Java supports multilevel inheritance, 
+where a class can extend another class, and that class can further extend another 
+class, creating a hierarchy of classes.
+
+class Animal {
+    // ...
+}
+
+class Mammal extends Animal {
+    // ...
+}
+
+class Dog extends Mammal {
+    // ...
+}
+
+3. Hierarchical Inheritance:
+-----------------------------------------
+Hierarchical inheritance is when a single superclass is inherited by multiple 
+subclasses. In this type of inheritance, one superclass is at the top of the
+ hierarchy, and multiple subclasses extend it.
+ 
+ class Shape {
+    // ...
+}
+
+class Circle extends Shape {
+    // ...
+}
+
+class Rectangle extends Shape {
+    // ...
+}
+
+class Triangle extends Shape {
+    // ...
+}
+
+4.Multiple Inheritance (Interface-based):
+Multiple inheritance is when a class can inherit from more than one superclass or 
+interface. Java does not support multiple inheritance for classes 
+(i.e., a class cannot directly extend multiple classes), but it allows multiple 
+inheritance through interfaces using the implements keyword.
+
+interface Flyable {
+    void fly();
+}
+
+interface Swimmable {
+    void swim();
+}
+
+class FlyingFish implements Flyable, Swimmable {
+    // ...
+}
+
+In Java, multiple inheritance is not directly supported for classes due to the 
+"diamond problem" (ambiguity when resolving method calls), but it can be achieved 
+using interfaces, as shown in the example for interface-based multiple inheritance.
+
+Diamond problem
+=======================
+     A
+    / \
+   B   C
+    \ /
+     D
+
+Class A is the base class.
+Classes B and C both inherit from class A, creating two separate paths to class A.
+Class D inherits from both classes B and C, forming the diamond shape.
+Now, consider the following scenario:
+
+Class A has a method called print() that simply prints "A".
+Classes B and C both have their own implementations of the print() method that print "B" 
+and "C", respectively.
+Class D does not override the print() method, so it inherits two versions of the 
+print() method from its two parent classes, B and C.
+This is where the ambiguity arises: When you create an object of class D and call 
+the print() method, the program doesn't know which version of the print() method to 
+use—the one from class B or the one from class C. This ambiguity makes it challenging
+ for the language to determine the correct method to invoke.
+
+To address the diamond problem, some programming languages restrict multiple 
+inheritance, disallowing classes to inherit from more than one superclass. 
+Java, for instance, doesn't allow multiple inheritance for classes to avoid the 
+diamond problem. However, Java allows multiple inheritance of interfaces, 
+as interfaces do not contain method implementations, avoiding the ambiguity issue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

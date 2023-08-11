@@ -1,0 +1,105 @@
+In Java, the super keyword is used to access members (fields and methods) of the 
+superclass from a subclass. The super keyword has several uses in the context of 
+inheritance and method overriding. Let's explore the different uses of the super 
+keyword:
+
+1.Accessing Overridden Methods:
+-------------------------------------------
+When a method in a subclass overrides a method in the superclass, the super keyword 
+can be used to call the overridden method from the superclass. This is useful when 
+you want to invoke the original behavior of the method defined in the superclass.
+
+class Animal {
+    void sound() {
+        System.out.println("Some generic sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark!");
+    }
+
+    void makeSound() {
+        sound();         // Calls the overridden method in this class (Bark!)
+        super.sound();   // Calls the sound() method from the superclass (Some generic sound)
+    }
+}
+
+2. Accessing Superclass Members:
+-------------------------------------------------
+The super keyword can be used to access fields and methods of the superclass directly.
+This is useful when a subclass has its own members with the same name as the members 
+in the superclass (method or variable shadowing). super allows you to access the 
+members of the superclass explicitly.
+
+class Car {
+    String brand = "GenericCar";
+
+    void start() {
+        System.out.println("Car started");
+    }
+}
+
+class Toyota extends Car {
+    String brand = "Toyota"; // Variable shadowing
+
+    void start() {
+        System.out.println("Toyota car started");
+    }
+
+    void startGenericCar() {
+        System.out.println("Starting generic car...");
+        super.start(); // Calls the start() method from the superclass
+    }
+
+    void displayBrands() {
+        System.out.println("Brand in Toyota: " + brand);      // Accesses the 'brand' variable of Toyota
+        System.out.println("Brand in Car (superclass): " + super.brand); // Accesses the 'brand' variable of Car (superclass)
+    }
+}
+
+3.Calling Superclass Constructors:
+---------------------------------------------
+The super keyword is used to call the constructor of the superclass from the 
+constructor of the subclass. This is known as constructor chaining. It is helpful 
+when the superclass constructor performs some common initialization tasks.
+
+class Animal {
+    String species;
+
+    public Animal(String species) {
+        this.species = species;
+    }
+}
+
+class Dog extends Animal {
+    String breed;
+
+    public Dog(String species, String breed) {
+        super(species); // Calls the constructor of the superclass
+        this.breed = breed;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

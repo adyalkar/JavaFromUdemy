@@ -1,0 +1,50 @@
+Object Composition : (Has a relationship)
+==============================================
+
+Object composition in Java is a design principle that allows you to create complex 
+objects by combining or composing simpler objects. Instead of inheriting properties 
+and behaviors from existing classes (as in inheritance), object composition involves 
+creating classes that contain instances of other classes as member variables. 
+This way, you can reuse existing functionality and build more flexible, modular, 
+and maintainable code.
+
+The main idea behind object composition is to create relationships between classes 
+that represent a "has-a" or "part-of" relationship rather than an "is-a" relationship.
+ In other words, instead of saying "A is a B," you say "A has a B" or "A is composed 
+ of B."
+ 
+ // Address class representing a physical address
+class Address {
+    private String street;
+    private String city;
+    private String zipCode;
+
+    // Constructor and other methods
+    // ...
+}
+
+// Person class representing a person with an address
+class Person {
+    private String name;
+    private Address address;
+
+    public Person(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    // Getter and setter methods for name and address
+    // ...
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address address = new Address("123 Main St", "Cityville", "12345");
+        Person person = new Person("John Doe", address);
+
+        System.out.println("Person name: " + person.getName());
+        System.out.println("Address: " + person.getAddress().getStreet() + ", " +
+                person.getAddress().getCity() + ", " + person.getAddress().getZipCode());
+    }
+}
+ 

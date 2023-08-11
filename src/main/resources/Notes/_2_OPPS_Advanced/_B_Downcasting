@@ -1,0 +1,74 @@
+Downcasting:
+============================================
+
+Downcasting in Java refers to the process of casting an object of a superclass to an object 
+of a subclass. It is the opposite of upcasting, where an object of a subclass is cast to an 
+object of its superclass. Downcasting is useful when you have an object of the superclass 
+but want to access the specific methods or fields of the subclass that are not available 
+in the superclass.
+
+However, downcasting must be used with caution because it can lead to runtime errors 
+if the object being downcasted is not an instance of the subclass. To perform a downcast safely, 
+you can use the instanceof operator to check the object's actual type before casting.
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    void wagTail() {
+        System.out.println("Dog wags its tail");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Dog(); // Upcasting: Dog object is assigned to an Animal reference
+
+        // Safe downcasting using instanceof
+        if (animal instanceof Dog) {
+            Dog dog = (Dog) animal; // Downcasting
+            dog.sound(); // Output: "Dog barks" (Method from Dog class)
+            dog.wagTail(); // Output: "Dog wags its tail" (Method from Dog class)
+        } else {
+            System.out.println("The object cannot be downcasted to Dog.");
+        }
+
+        // Unsafe downcasting (without instanceof check)
+        // Dog dog = (Dog) animal; // Possible ClassCastException if animal is not actually a Dog
+    }
+}
+
+
+Before performing downcasting, you typically need to perform upcasting. Upcasting involves 
+assigning an object of a subclass to a reference of its superclass. This is done implicitly, 
+and it allows you to treat the subclass object as an object of its superclass. 
+Upcasting is safe and straightforward because every subclass is a subclass of its superclass, 
+so there is no risk of losing information or violating the class hierarchy.
+
+Once the upcasting is done, you can perform downcasting to retrieve the original subclass 
+object from the superclass reference. Downcasting is the process of casting the superclass 
+reference back to the subclass reference. However, downcasting requires explicit casting and
+needs to be done carefully to avoid potential ClassCastException errors.
+
+Here's a brief overview of the process:
+===============================================
+
+Upcasting:
+------------------
+1.Create an object of a subclass.
+2.Assign the subclass object to a reference of its superclass.
+
+Downcasting:
+----------------------
+1.Check if the superclass reference actually points to an object of the subclass using the 
+instanceof operator.
+2.If the check passes, explicitly cast the superclass reference to a subclass reference to 
+access subclass-specific methods or fields.

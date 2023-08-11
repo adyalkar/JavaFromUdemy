@@ -1,0 +1,49 @@
+Upcasting 
+======================
+is a feature in Java that allows you to assign an object of a subclass to a 
+variable of the superclass type. It is an implicit conversion where the reference of the 
+subclass is automatically converted to the reference of the superclass. 
+The actual object remains unchanged; only the reference type changes.
+
+In other words, upcasting allows you to treat a subclass object as if it were an instance of 
+its superclass. This is possible because a subclass inherits all the fields and methods of its 
+superclass, so the object of the subclass can also be considered as an object of the superclass.
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    void wagTail() {
+        System.out.println("Dog wags its tail");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound(); // Output: "Dog barks"
+        dog.wagTail(); // Output: "Dog wags its tail"
+
+        // Upcasting: Assigning Dog object to Animal reference
+        Animal animal = dog; // Upcasting
+
+        // The reference 'animal' still points to the same Dog object
+        animal.sound(); // Output: "Animal makes a sound"
+        // However, you cannot call the wagTail() method using the animal reference
+        // animal.wagTail(); // Error: wagTail() is not defined in the Animal class
+    }
+}
+
+1. By creating subclass object , we can call all methods from super and subclass,if method
+is overridden in subclass then its priority is high.
+2. By creating super class object , we can only call all methods from super class.
+3. In case of upcasting , We can call all the method from super class, Method from sub class
+can not be called and in case overriiden method is sub class then its priority is high.

@@ -1,0 +1,89 @@
+Abstract Class :
+=================================
+
+In Java, an abstract class is a class that cannot be instantiated directly, meaning you cannot 
+create objects of an abstract class using the new keyword.
+
+Abstract classes can have both abstract and concrete (non-abstract) methods, making them a 
+powerful tool for implementing inheritance and providing a common interface for related classes.
+
+Key characteristics of abstract classes:
+---------------------------------------------------------------
+1. Declaring Abstract Classes: To create an abstract class, you use the abstract keyword in the 
+class declaration. Abstract classes are typically used as base classes or superclasses, 
+providing a general outline that subclasses must follow.
+
+2. Abstract Methods: Abstract classes can contain abstract methods, which are methods without 
+a body (no implementation). Abstract methods are declared using the abstract keyword and 
+end with a semicolon. Subclasses of an abstract class must implement all its abstract methods.
+
+3.Concrete Methods: Abstract classes can also have concrete (non-abstract) methods, which 
+have a complete implementation. Subclasses inherit these concrete methods and can also override
+ them if needed.
+
+4.Partial Implementation: Abstract classes can provide a partial implementation of a class's 
+behavior, leaving some methods as abstract for subclasses to implement.
+ This promotes code reusability and helps maintain a consistent structure across related classes.
+
+5.Cannot be Instantiated: Since abstract classes may have incomplete methods (abstract methods) 
+without a specific implementation, they cannot be instantiated directly. To use an abstract
+class, you need to create a subclass that extends the abstract class and provides implementations
+ for all the abstract methods.
+ 
+ --> one abstract class can extend another abstract class , In that case there is no need to
+ provide implimentation to abstract method of super class.
+ 
+ // Abstract class
+abstract class Shape {
+    // Concrete method
+    void displayArea() {
+        System.out.println("Area is calculated for a shape.");
+    }
+
+    // Abstract method (no implementation)
+    abstract double calculateArea();
+}
+
+// Concrete subclass
+class Circle extends Shape {
+    private double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Concrete subclass
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape1 = new Circle(5);
+        Shape shape2 = new Rectangle(4, 6);
+
+        shape1.displayArea(); // Output: "Area is calculated for a shape."
+        System.out.println("Area of the Circle: " + shape1.calculateArea()); // Output: "Area of the Circle: 78.53981633974483"
+
+        shape2.displayArea(); // Output: "Area is calculated for a shape."
+        System.out.println("Area of the Rectangle: " + shape2.calculateArea()); // Output: "Area of the Rectangle: 24.0"
+    }
+}
+ 

@@ -1,0 +1,74 @@
+Method overriding is a fundamental feature in Java's object-oriented programming, 
+allowing a subclass to provide a specific implementation of a method that is already 
+defined in its superclass. When a subclass overrides a method, it means that the 
+subclass provides its own version of the method that supersedes the implementation in 
+the superclass. This allows the subclass to customize the behavior of the inherited 
+method according to its own specific requirements.
+
+For method overriding to occur, the following conditions must be met:
+----------------------------------------------------------------------------------
+1.The method in the subclass must have the same name and the same parameter list 
+(number and types) as the method in the superclass.
+2.The method in the subclass must be declared with the @Override annotation 
+(optional but recommended for better code readability).
+3.The method in the subclass must have the same return type or a covariant return type
+ (i.e., a subtype of the return type in the superclass).
+4.The access modifier of the method in the subclass must not be more restrictive than 
+the access modifier of the method in the superclass. (e.g., If the superclass method is protected, the overriding method can be protected or public but not private)
+
+Let's illustrate method overriding with an example:
+------------------------------------------------------------------
+
+class Shape {
+    private String name;
+
+    public Shape(String name) {
+        this.name = name;
+    }
+
+    // Method in the superclass with arguments
+    public void draw(int x, int y) {
+        System.out.println(name + " is drawn at coordinates (" + x + ", " + y + ")");
+    }
+}
+
+class Circle extends Shape {
+    private int radius;
+
+    public Circle(String name, int radius) {
+        super(name);
+        this.radius = radius;
+    }
+
+    // Method overriding with a different implementation
+    @Override
+    public void draw(int x, int y) {
+        System.out.println("Circle " + super.name + " with radius " + radius + " is drawn at coordinates (" + x + ", " + y + ")");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape = new Shape("Generic Shape");
+        Circle circle = new Circle("Circle", 5);
+
+        shape.draw(10, 20);   // Output: Generic Shape is drawn at coordinates (10, 20)
+        circle.draw(30, 40);  // Output: Circle with radius 5 is drawn at coordinates (30, 40)
+    }
+}
+
+In this example, we have a superclass Shape with a constructor that initializes the 
+shape's name. The Shape class has a method draw(int x, int y) that takes x and y 
+coordinates as arguments and displays a message indicating that the shape is drawn 
+at those coordinates.
+
+The subclass Circle extends Shape and has an additional field radius. We override 
+the draw(int x, int y) method in the Circle class with the @Override annotation. 
+The overridden method provides a different implementation that includes the radius 
+of the circle in the output message.
+
+When we create objects of the Shape and Circle classes and call the draw
+(int x, int y) method, Java will dynamically dispatch the method call based on the 
+actual type of the object. The output will show that the draw method in the Circle 
+class is used for the Circle object, while the draw method in the Shape class is 
+used for the Shape object.

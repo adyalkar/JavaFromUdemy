@@ -1,0 +1,77 @@
+Method overloading, also known as method ad-hoc polymorphism, is a feature in Java 
+and other object-oriented programming languages that allows a class to define 
+multiple methods with the same name but different parameters. When a method is 
+called, the compiler determines which version of the method to invoke based on the 
+number or types of arguments passed to it.
+
+In other words, method overloading allows a class to provide multiple implementations
+ of the same method, each tailored to handle different types of inputs or perform 
+ specific tasks. This enhances the flexibility and readability of the code by 
+ offering a more intuitive and concise way to define methods with similar 
+ functionality.
+
+The method overloading must follow these rules:
+-------------------------------------------------------------------------
+1.The method names must be the same.
+2.The method parameters must be different in terms of the number of parameters, or 
+the types of parameters, or both.
+
+Let's illustrate method overloading with some examples:
+-----------------------------------------------------------------
+
+Example 1 - Overloading based on the number of parameters:
+-----------------------------------------------------------------
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+Example 2 - Overloading based on the types of parameters:
+---------------------------------------------------------------
+class MathOperations {
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.add(5, 10));          // Calls the add(int, int) method
+        System.out.println(calculator.add(2, 4, 6));        // Calls the add(int, int, int) method
+
+        MathOperations mathOps = new MathOperations();
+        System.out.println(mathOps.multiply(2, 3));         // Calls the multiply(int, int) method
+        System.out.println(mathOps.multiply(2.5, 3.5));     // Calls the multiply(double, double) method
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+The java.util.Arrays class in Java provides various utility methods for working with arrays. 
+Here are some commonly used methods from the Arrays class along with examples:
+
+1.toString(): This method returns a string representation of the specified array.
+
+int[] numbers = {1, 2, 3, 4, 5};
+String arrayString = Arrays.toString(numbers);
+System.out.println(arrayString); // Output: [1, 2, 3, 4, 5]
+
+2. sort(): This method sorts the specified array in ascending order.
+
+int[] numbers = {5, 2, 8, 1, 3};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // Output: [1, 2, 3, 5, 8]
+
+3.binarySearch(): This method searches for a specified element in a sorted array using the binary search 
+algorithm and returns the index of the element if found. If the element is not found, it returns a negative 
+value.
+
+int[] numbers = {1, 2, 3, 4, 5};
+int index = Arrays.binarySearch(numbers, 3);
+System.out.println(index); // Output: 2 (index of element 3 in the sorted array)
+
+4.copyOf(): This method creates a new array with a specified length and copies elements from the original 
+array to the new array. It allows you to create a shallow copy of an array.
+
+int[] numbers = {1, 2, 3, 4, 5};
+int[] copy = Arrays.copyOf(numbers, numbers.length);
+System.out.println(Arrays.toString(copy)); // Output: [1, 2, 3, 4, 5]
+
+5.fill(): This method assigns a specified value to each element of an array.
+
+int[] numbers = new int[5];
+Arrays.fill(numbers, 10);
+System.out.println(Arrays.toString(numbers)); // Output: [10, 10, 10, 10, 10]
+
+6.hashCode(): The hashCode() method in the Arrays class is used to generate a hash code for an array. 
+It takes the array as an argument and returns an integer hash code. The hash code is computed based on the 
+elements of the array, so arrays with the same elements will produce the same hash code.
+
+int[] arrayToHash = {1, 2, 3};
+int hashCode = Arrays.hashCode(arrayToHash);
+System.out.println(hashCode); // Output: -1634557797 (hash code of the array)
+
+ In the above example, the hashCode() method is called on the arrayToHash array, and the resulting hash code
+ is printed. The generated hash code is an integer value that represents the array's contents.
+ 
+7.asList(): The asList() method in the Arrays class is used to convert an array into a fixed-size list.
+ It takes an array as an argument and returns a List object that contains the elements of the array. 
+ The returned list is a view of the original array, so any modifications made to the list will also affect 
+ the underlying array. 
+ 
+ String[] names = {"John", "Jane", "Alice"};
+List<String> nameList = Arrays.asList(names);
+System.out.println(nameList); // Output: [John, Jane, Alice]
+ 
+ In the above example, the asList() method is called on the names array, and the resulting List object is 
+ assigned to the nameList variable. The nameList now contains the elements of the names array, allowing you 
+ to perform list operations on it.
+ 
+8.stream(): The stream() method in the Arrays class is used to convert an array into a stream. 
+A stream is a sequence of elements that can be processed in a functional-style manner. Streams provide 
+various operations, such as filtering, mapping, and reducing, to process the elements of an array. 
+
+int[] arrayToStream = {1, 2, 3, 4, 5};
+Arrays.stream(arrayToStream)
+      .forEach(System.out::println); // Output: 1, 2, 3, 4, 5
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
