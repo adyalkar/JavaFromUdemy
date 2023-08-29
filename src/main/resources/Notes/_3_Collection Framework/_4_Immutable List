@@ -1,0 +1,36 @@
+The List.of() method is a convenient way to create an immutable list in Java.
+ It was introduced in Java 9 as part of the Java Collections Framework enhancements. 
+ The resulting list is unmodifiable, meaning you cannot add, remove, or change elements after 
+ it's created. Here's how you can use List.of():
+ 
+ import java.util.List;
+
+public class ListOfExample {
+    public static void main(String[] args) {
+        // Creating an immutable list using List.of()
+        List<String> fruits = List.of("Apple", "Banana", "Orange");
+
+        // Attempting to modify the list will result in an UnsupportedOperationException
+        // fruits.add("Grapes"); // This will throw an exception
+
+        // Accessing elements of the immutable list
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+    }
+}
+ 
+ 
+ Key points about List.of():
+-----------------------------------------------------------------
+1.It's a factory method that creates an immutable list containing the specified elements.
+2.The created list is unmodifiable, which means you cannot add, remove, or modify its elements.
+3.Any attempt to modify the list will result in an UnsupportedOperationException.
+4.The order of elements in the created list is the same as the order of elements provided to the
+ List.of() method.
+5.The list is created using varargs, so you can provide a variable number of elements as arguments.
+
+Keep in mind that while List.of() provides immutability and can be useful for scenarios 
+where you want to ensure data integrity, it's not suitable for situations where you need to 
+modify the list. If you need a modifiable list, you should use other implementations of the 
+List interface, such as ArrayList or LinkedList.
