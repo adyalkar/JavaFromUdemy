@@ -30,6 +30,8 @@ public class _1_ImmutableList {
 		
 		List <String> wordVector = new Vector<>(words);
 		wordVector.add(3,"Fan");
+		
+		
 		wordVector.add("GUN");
 		wordVector.add("Hello");
 		System.out.println(wordVector);
