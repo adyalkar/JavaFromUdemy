@@ -3,21 +3,21 @@ package LogicalPrograms;
 public class ModifyStringExample {
 	
     public static void main(String[] args) {
-    	option1("I am a Reshma");
+    	option1("I am a Rani");
     	option2();
     	option3();
     }
     
     public static void option1 (String input) {
     	
-    	String output = input.replaceAll("(I)\\s(am)|(a)\\s(Reshma)", "$1$2$3$4");
+    	String output = input.replaceAll("(I)\\s(am)|(a)\\s(Rani)", "$1$2$3$4");
         
         System.out.println(output);
     	
     }
     
         public static void option2 () {
-        	String input = "I am a Reshma";
+        	String input = "I am a Rani";
             String[] words = input.split(" "); // Split the input string by spaces
 
             StringBuilder output = new StringBuilder();
@@ -26,7 +26,7 @@ public class ModifyStringExample {
                 if (i == 0) {
                     // Handle the first word
                     output.append(words[i]);
-                } else if ((words[i - 1].equals("I") && words[i].equals("am")) || (words[i - 1].equals("a") && words[i].equals("Reshma"))) {
+                } else if ((words[i - 1].equals("I") && words[i].equals("am")) || (words[i - 1].equals("a") && words[i].equals("Rani"))) {
                     // Concatenate without a space
                     output.append(words[i]);
                 } else {
@@ -40,15 +40,15 @@ public class ModifyStringExample {
         
         public static void option3 () {
         	
-        	 String input = "I am a Reshma";
-             String[] words = input.split(" "); // Split the input string by spaces
+        	 String input = "I am a Rani";
+             String[] words = input.split(" "); 
              String output = "";
-
+             
              for (int i = 0; i < words.length; i++) {
                  if (i == 0) {
                      // Handle the first word
                      output += words[i];
-                 } else if ((words[i - 1].equals("I") && words[i].equals("am")) || (words[i - 1].equals("a") && words[i].equals("Reshma"))) {
+                 } else if ((words[i - 1].equals("I") && words[i].equals("am")) || (words[i - 1].equals("a") && words[i].equals("Rani"))) {
                      // Concatenate without a space
                      output += words[i];
                  } else {

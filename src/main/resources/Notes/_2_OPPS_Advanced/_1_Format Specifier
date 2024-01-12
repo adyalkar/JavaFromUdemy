@@ -27,4 +27,6 @@ These are called as Format Specifiers:
 	
 	%%: Used to display a percent sign %.
 
-These are some of the most commonly used format specifiers, but there are more available for specific formatting requirements. You can use these format specifiers to control how different data types are displayed as strings when using the String.format() method.
+These are some of the most commonly used format specifiers, but there are more available for 
+specific formatting requirements. You can use these format specifiers to control how different 
+data types are displayed as strings when using the String.format() method.

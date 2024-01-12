@@ -1,0 +1,33 @@
+Functional programming is a programming paradigm that treats computation as 
+the evaluation of mathematical functions and avoids changing-state and mutable data. 
+In Java, functional programming features were introduced in Java 8 and are primarily 
+centered around the concept of lambda expressions and the functional interfaces
+ in the java.util.function package. These features include:
+ 
+ 1. Lambda Expressions: Lambda expressions are a concise way to define inline implementations 
+ of a functional interface (an interface with a single abstract method). They make it easier 
+ to write anonymous functions in Java.
+ 
+ (a, b) -> a + b
+ 
+ 
+ 2. Streams: The Stream API provides a way to process sequences of data (collections) in a
+  functional style. You can use operations like filter, map, and reduce to work with data.
+
+Example:
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int sum = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .mapToInt(Integer::intValue)
+                .sum();
+                
+    Stream is of 2 types 
+    ---------------------------
+    a) Intermidiate Operation : 
+       ex : Filter  ---> Its output will be again a stream
+       
+    b) Terminal Operation :
+      ex : foreach , reduce ---> It process the data
+      
+ Note : On one data , we can execute multiple intermidiate operation but only one terminal operation.
