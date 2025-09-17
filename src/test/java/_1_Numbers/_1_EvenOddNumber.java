@@ -3,7 +3,7 @@ package _1_Numbers;
 public class _1_EvenOddNumber {
 
 	public static void main(String[] args) {
-		isNumOddOrEven(10);
+		isNumOddOrEven(11);
 	}
 	
 	public static void isNumOddOrEven(int num) {
