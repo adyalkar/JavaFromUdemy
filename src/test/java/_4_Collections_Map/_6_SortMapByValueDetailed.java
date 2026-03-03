@@ -33,10 +33,10 @@ public class _6_SortMapByValueDetailed {
         }
 
         // Optional: build LinkedHashMap if you need a Map that iterates in this order
-        Map<String, Integer> sortedMap = new LinkedHashMap<>();
-        for (Map.Entry<String, Integer> e : entryList) {
-            sortedMap.put(e.getKey(), e.getValue());
-        }
+//        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+//        for (Map.Entry<String, Integer> e : entryList) {
+//            sortedMap.put(e.getKey(), e.getValue());
+//        }
 
         // 'sortedMap' preserves iteration order (highest frequency first)
     }

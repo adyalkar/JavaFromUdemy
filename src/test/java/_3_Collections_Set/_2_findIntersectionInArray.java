@@ -37,3 +37,7 @@ public class _2_findIntersectionInArray {
 	}
 
 }
+
+// Intersection --> Set<Integer> result = new HashSet<>(a); result.retainAll(b);
+//Union ---> addAll(b)
+//Difference --->removeAll(b)

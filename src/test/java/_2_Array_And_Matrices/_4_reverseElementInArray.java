@@ -12,6 +12,8 @@ public class _4_reverseElementInArray {
     public static void reverseElement(int [] numbs) {
 
         int size = numbs.length;               // find the size of the array
+        
+        System.out.println(size);
 
         int [] revNum = new int[size];         // create a new array to store reversed elements
 
@@ -25,5 +27,20 @@ public class _4_reverseElementInArray {
         for (int i = 0; i < size; i++) {
             System.out.println(revNum[i]);
         }
+        
     }
 }
+
+//public static void reverseElement(int[] arr) {
+//    int left = 0, right = arr.length - 1;
+//
+//    while (left < right) {
+//        int temp = arr[left];
+//        arr[left] = arr[right];
+//        arr[right] = temp;
+//
+//        left++;
+//        right--;
+//    }
+//}
+

@@ -34,6 +34,19 @@ public class _6_ReverseList {
 
 	}
 	
+//	 List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+//
+//     int left = 0;
+//     int right = list.size() - 1;
+//
+//     while (left < right) {
+//         int temp = list.get(left);
+//         list.set(left, list.get(right));
+//         list.set(right, temp);
+//         left++;
+//         right--;
+//     }
+	
 	
 
 }

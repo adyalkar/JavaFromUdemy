@@ -47,3 +47,19 @@ public class _6_minMaxinArray {
 	}
 
 }
+
+//public static void maxAndMin(int[] numbs) {
+//    int max = Integer.MIN_VALUE;
+//    int min = Integer.MAX_VALUE;
+//
+//    for (int i = 0; i < numbs.length; i++) {
+//        if (numbs[i] > max) {
+//            max = numbs[i];
+//        }
+//        if (numbs[i] < min) {
+//            min = numbs[i];
+//        }
+//    }
+//
+//    System.out.println(max + "------" + min);
+//}

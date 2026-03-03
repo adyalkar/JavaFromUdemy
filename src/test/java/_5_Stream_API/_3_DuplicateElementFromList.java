@@ -11,7 +11,7 @@ public class _3_DuplicateElementFromList {
 	
 	public static void main(String[] args) {
 		
-		List <Integer> i = Arrays.asList(2,3,5,1,7,9,10,2);
+		List <Integer> i = Arrays.asList(2,3,5,1,7,9,10,2,3);
 		duplicateNumber(i);
 
 	}
