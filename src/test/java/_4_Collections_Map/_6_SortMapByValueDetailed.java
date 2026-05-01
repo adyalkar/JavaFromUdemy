@@ -1,11 +1,19 @@
 package _4_Collections_Map;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class _6_SortMapByValueDetailed {
     public static void main(String[] args) {
         String sentence = "I love Java I love coding I love programming";
-        sortByFrequency(sentence);
+//        sortByFrequency(sentence);
+
+       Map<Object, Long> map = Arrays.stream(sentence.split(" "))
+               .collect(Collectors.groupingBy(
+                x -> x, Collectors.counting()
+        ));
+
+       map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).forEach(System.out::println);
     }
 
     public static void sortByFrequency(String sentence) {

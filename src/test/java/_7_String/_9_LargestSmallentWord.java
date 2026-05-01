@@ -1,11 +1,16 @@
 package _7_String;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class _9_LargestSmallentWord {
 	
 	public static void main(String[] args) {
 		String str = "Anup Chandrabhan Adyalkar";
 		method1(str);
-		
+
+       String max =  Arrays.stream(str.split(" ")).max(Comparator.comparing(String::length)).orElse("");
+        System.out.println(max);
 	}
 	
 	public static void method1(String str) {

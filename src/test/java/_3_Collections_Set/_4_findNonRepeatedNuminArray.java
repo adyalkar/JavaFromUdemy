@@ -31,7 +31,8 @@ public class _4_findNonRepeatedNuminArray {
 		}
 				
 		}
-		
+        System.out.println("Seen Once : "+seenOnce);
+        System.out.println("Seen More: "+seenMore);
 		seenOnce.removeAll(seenMore);
 		
 		System.out.println(seenOnce);

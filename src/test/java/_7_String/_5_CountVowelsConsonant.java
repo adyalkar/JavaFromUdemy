@@ -1,9 +1,19 @@
 package _7_String;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class _5_CountVowelsConsonant {
 	
     public static void main(String[] args) {
         String str = "hello world";
+
+        Map<Boolean, Long> map = str.chars().mapToObj(c -> (char)c)
+                        .collect(Collectors.partitioningBy(
+                                c -> "aeiou".indexOf(c) >= 0,Collectors.counting()
+                        ));
+
+        System.out.println("Vowels count is " + map.get(true) + " and consonant count is " + map.get(false));
         count2(str);
     }
 

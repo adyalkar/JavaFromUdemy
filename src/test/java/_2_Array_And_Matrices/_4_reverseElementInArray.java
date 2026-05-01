@@ -5,7 +5,9 @@ public class _4_reverseElementInArray {
     public static void main(String[] args) {
 
         int [] arr = {10, 12 , 0 , 2 , 4 , -8 , -2};
-        reverseElement(arr);  // call the method to reverse
+//        reverseElement(arr);  // call the method to reverse
+
+        reverseElement2(arr); // call the second method to reverse in place
 
     }
 
@@ -29,18 +31,24 @@ public class _4_reverseElementInArray {
         }
         
     }
+
+    public static void reverseElement2(int[] arr) {
+        int left = 0, right = arr.length - 1;
+
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+
+        for (int x:arr){
+            System.out.println(x);
+        }
+    }
 }
 
-//public static void reverseElement(int[] arr) {
-//    int left = 0, right = arr.length - 1;
-//
-//    while (left < right) {
-//        int temp = arr[left];
-//        arr[left] = arr[right];
-//        arr[right] = temp;
-//
-//        left++;
-//        right--;
-//    }
-//}
+
 

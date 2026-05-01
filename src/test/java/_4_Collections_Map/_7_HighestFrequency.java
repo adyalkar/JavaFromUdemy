@@ -1,7 +1,10 @@
 package _4_Collections_Map;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class _7_HighestFrequency {
 	
@@ -9,7 +12,13 @@ public class _7_HighestFrequency {
 		
 		String str = "HelloHH";
 		highestFreq(str);
-		
+
+        Map.Entry<Character, Long> result = str.chars().mapToObj(x -> (char) x)
+                .collect(Collectors.groupingBy(
+                        x -> x, Collectors.counting()
+                )).entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get();
+
+        System.out.println(result);
 	}
 	
 	public static void highestFreq (String str) {

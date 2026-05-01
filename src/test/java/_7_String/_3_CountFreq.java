@@ -2,6 +2,7 @@ package _7_String;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class _3_CountFreq {
 	
@@ -10,6 +11,11 @@ public class _3_CountFreq {
 		String s ="success";
 		
 		countFreq(s);
+
+        Map<Object, Long> map = s.chars().mapToObj(x ->(char)x)
+                .collect(Collectors.groupingBy(x->x , Collectors.counting()));
+
+        System.out.println(map);
 		
 	}
 	

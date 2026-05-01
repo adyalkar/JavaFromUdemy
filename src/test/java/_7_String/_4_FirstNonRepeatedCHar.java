@@ -1,16 +1,44 @@
 package _7_String;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class _4_FirstNonRepeatedCHar {
 	
 	public static void main(String[] args) {
 		
-		String s ="success";
+		String s ="aabbcc";
+
+
+        Map<Character,Long>lh= s.chars().mapToObj(x->(char)x)
+                        .collect(Collectors.groupingBy(x->x,LinkedHashMap::new,Collectors.counting()));
+
+//        Map<Object, List<Character>> lh= s.chars().mapToObj(x->(char)x)
+//                .collect(Collectors.groupingBy(x->x));
+
+        System.out.println(lh);
+        boolean isFound=false;
+
+        for (Map.Entry<Character,Long> entry : lh.entrySet()) {
+            if(entry.getValue()==1){
+                System.out.println("First Non Repeated Char is : "+entry.getKey());
+                isFound = true;
+                break;
+            }
+        }
+
+        if (!isFound) {
+        	System.out.println("There is no Non Repeated Char in the String");
+        }
+
+//Another way to find first non repeated char using stream
+       Character c= s.chars().mapToObj(x->(char)x)
+                .collect(Collectors.groupingBy(x->x,LinkedHashMap::new,Collectors.counting()))
+                        .entrySet().stream()
+                        .filter(x->x.getValue()==1)
+                                .findFirst().orElse(null).getKey();
+
+        System.out.println(c);
 
 		firstNonRepeated(s);
 		

@@ -41,8 +41,7 @@ public class _2_Find2ndHighestNumber {
 		 int secondHighest = distint.stream()
 	                .sorted(Comparator.reverseOrder())
 	                .skip(1)
-	                .findFirst()
-	                .orElseThrow();
+	                .findFirst().orElseThrow(null);
 
 	        System.out.println("Second highest: " + secondHighest);
 	        
